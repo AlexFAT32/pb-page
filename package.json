@@ -2,7 +2,9 @@
   "name": "@pb-screen/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "run-all": "nx run-many --target=serve"
+  },
   "private": true,
   "dependencies": {
     "@emotion/react": "11.11.1",
@@ -10,9 +12,11 @@
     "@mantine/core": "^7.11.0",
     "@mantine/hooks": "^7.11.0",
     "axios": "^1.6.0",
+    "cors": "^2.8.5",
     "express": "^4.18.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "react-query": "^3.39.3",
     "tslib": "^2.3.0",
     "unique-names-generator": "^4.7.1"
   },
@@ -36,6 +40,7 @@
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",
     "@testing-library/react": "15.0.6",
+    "@types/cors": "^2.8.17",
     "@types/jest": "^29.4.0",
     "@types/node": "18.16.9",
     "@types/react": "18.3.1",
