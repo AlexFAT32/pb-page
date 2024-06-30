@@ -10,28 +10,10 @@ import cors from 'cors';
 
 const app = express();
 app.use(cors())
-app.get('/api', (req, res) => {
-  res.send({ message: 'Welcome to api!' });
-});
 
-app.get('/api/battle-result', (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader(
-    'Access-Control-Allow-Methods',
-    'GET, POST, OPTIONS, PUT, PATCH, DELETE'
-  );
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-Requested-With,content-type, Accept'
-  );
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
+
+app.get('/api/battle/:id/result', (req, res) => {
   res.send(battleResultResponse);
-});
-app.get('/api/commands', (req, res) => {
-  res.send({ message: 'Commands!' });
-});
-app.get('/api/players', (req, res) => {
-  res.send({ message: 'Players!' });
 });
 
 const port = process.env.PORT || 3333;

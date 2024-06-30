@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { PostBattlePage } from './components/post-battle-page/post-battle-page';
+import { PostBattlePage } from './pages/post-battle-page';
 import { Container, createTheme, MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
 import { QueryClient, QueryClientProvider } from 'react-query';

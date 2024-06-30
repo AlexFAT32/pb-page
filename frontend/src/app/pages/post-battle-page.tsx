@@ -1,16 +1,19 @@
 import { BattleResultResponse } from '@game/shared';
 import { useEffect, useRef, useState } from 'react';
-import { getPostBattleData } from '../../api/get-post-battle-data';
-import { Card, Center, SimpleGrid } from '@mantine/core';
-import { TeamInfo } from './team-info';
+import { getPostBattleData } from '../api/get-post-battle-data';
+import { Card, Center, Loader, SimpleGrid } from '@mantine/core';
+import { TeamInfo } from '../components/post-battle-page/team-info';
 import { useQuery } from 'react-query';
 
 export const PostBattlePage = () => {
 
-  const { isLoading, error, data: battleResult  } = useQuery(['battle-result'], (): Promise<BattleResultResponse> => getPostBattleData('http://localhost:3333/api/battle-result'));
+  const { isLoading,isError, data: battleResult  } = useQuery(['battle-result'], (): Promise<BattleResultResponse> => getPostBattleData('http://localhost:3333/api/battle/1/result'));
 
+  if (isError) {
+    return <div>An error occurred.</div>;
+  }
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Center><Loader color={'white'} /></Center>;
   }
   const sortedWinners = battleResult?.winners.sort((a, b) => b.score - a.score);
   const sortedLosers = battleResult?.losers.sort((a, b) => b.score - a.score);
