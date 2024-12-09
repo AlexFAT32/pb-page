@@ -9,6 +9,8 @@ export const PostBattlePage = () => {
 
   const { isLoading,isError, data: battleResult  } = useQuery(['battle-result'], (): Promise<BattleResultResponse> => getPostBattleData('http://localhost:3333/api/battle/1/result'));
 
+  const minorChange = "Some minor change";
+
   if (isError) {
     return <div>An error occurred.</div>;
   }
