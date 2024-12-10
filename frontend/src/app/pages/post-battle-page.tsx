@@ -10,6 +10,7 @@ export const PostBattlePage = () => {
   const { isLoading,isError, data: battleResult  } = useQuery(['battle-result'], (): Promise<BattleResultResponse> => getPostBattleData('http://localhost:3333/api/battle/1/result'));
 
   const errorMessage = "An error occurred.";
+  const bResult = "Battle result";
 
   if (isError) {
     return <div>{errorMessage}</div>;
@@ -24,7 +25,7 @@ export const PostBattlePage = () => {
     <Card shadow="sm" title={'Post Battle Page'} withBorder>
       <Card.Section>
         <Center>
-          <h1>Battle Results</h1>
+          <h1>{bResult}</h1>
         </Center>
       </Card.Section>
       <SimpleGrid spacing="md" cols={2}>
