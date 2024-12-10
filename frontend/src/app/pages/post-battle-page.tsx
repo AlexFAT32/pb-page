@@ -1,5 +1,4 @@
 import { BattleResultResponse } from '@game/shared';
-import { useEffect, useRef, useState } from 'react';
 import { getPostBattleData } from '../api/get-post-battle-data';
 import { Card, Center, Loader, SimpleGrid } from '@mantine/core';
 import { TeamInfo } from '../components/post-battle-page/team-info';
