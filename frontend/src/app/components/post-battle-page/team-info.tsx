@@ -14,14 +14,14 @@ export const TeamInfo = ({ title, players }: TeamInfoProps) => {
     <div>
       <Group justify="space-between">
         <Text py={3} fw={'bold'} size={'xl'}>
-          {title || 'Team'}
+          {title ?? 'Team'}
         </Text>
         <Text py={3}>Score</Text>
       </Group>
       <ScrollArea h={400}>
         {playerList.map((player) => {
           return (
-            <div key={player?.id}>
+            <div key={player.id}>
               <Group justify="space-between">
                 <PlayerWithTooltip player={player} />
                 <Text py={3} mr={'2rem'} c={!player.isAlive ? 'dimmed' : ''}>
