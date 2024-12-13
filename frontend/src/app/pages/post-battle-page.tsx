@@ -1,3 +1,4 @@
+import React from 'react';
 import { BattleResultResponse } from '@game/shared';
 import { getPostBattleData } from '../api/get-post-battle-data';
 import { Card, Center, Loader, SimpleGrid } from '@mantine/core';
@@ -6,16 +7,17 @@ import { useQuery } from 'react-query';
 
 export const PostBattlePage = () => {
   const apiUrl = process.env.LOCAL_URL || 'http://localhost:3333/api/battle/1/result';
-  const { isLoading, isError, data: battleResult  } = useQuery(['battle-result'], (): Promise<BattleResultResponse> => getPostBattleData(apiUrl));
+  const { isLoading, isError, error, data: battleResult  } = useQuery(['battle-result'], (): Promise<BattleResultResponse> => getPostBattleData(apiUrl));
 
   if (isError) {
+    console.error('Error fetching battle result:', error);
     return <div>An error occurred.</div>;
   }
   if (isLoading) {
     return <Center><Loader color={'white'} /></Center>;
   }
-  const sortedWinners = battleResult?.winners.sort((a, b) => b.score - a.score) || [];
-  const sortedLosers = battleResult?.losers.sort((a, b) => b.score - a.score) || [];
+  const sortedWinners = React.useMemo(() => battleResult?.winners.sort((a, b) => b.score - a.score) || [], [battleResult]);
+  const sortedLosers = React.useMemo(() => battleResult?.losers.sort((a, b) => b.score - a.score) || [], [battleResult]);;
 
   return (
     <Card shadow="sm" title={'Post Battle Page'} withBorder>
