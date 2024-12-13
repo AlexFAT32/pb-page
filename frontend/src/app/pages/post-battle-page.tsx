@@ -5,14 +5,11 @@ import { TeamInfo } from '../components/post-battle-page/team-info';
 import { useQuery } from 'react-query';
 
 export const PostBattlePage = () => {
-
-  const { isLoading,isError, data: battleResult  } = useQuery(['battle-result'], (): Promise<BattleResultResponse> => getPostBattleData('http://localhost:3333/api/battle/1/result'));
-
-  const errorMessage = "An error occurred.";
-  const bResult = "Battle result";
+  const apiUrl = process.env.LOCAL_URL || 'http://localhost:3333/api/battle/1/result';
+  const { isLoading, isError, data: battleResult  } = useQuery(['battle-result'], (): Promise<BattleResultResponse> => getPostBattleData(apiUrl));
 
   if (isError) {
-    return <div>{errorMessage}</div>;
+    return <div>An error occurred.</div>;
   }
   if (isLoading) {
     return <Center><Loader color={'white'} /></Center>;
@@ -24,7 +21,7 @@ export const PostBattlePage = () => {
     <Card shadow="sm" title={'Post Battle Page'} withBorder>
       <Card.Section>
         <Center>
-          <h1>{bResult}</h1>
+          <h1>Battle result</h1>
         </Center>
       </Card.Section>
       <SimpleGrid spacing="md" cols={2}>
