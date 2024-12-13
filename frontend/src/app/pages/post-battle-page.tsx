@@ -17,8 +17,8 @@ export const PostBattlePage = () => {
   if (isLoading) {
     return <Center><Loader color={'white'} /></Center>;
   }
-  const sortedWinners = battleResult?.winners.sort((a, b) => b.score - a.score);
-  const sortedLosers = battleResult?.losers.sort((a, b) => b.score - a.score);
+  const sortedWinners = battleResult?.winners.sort((a, b) => b.score - a.score) || [];
+  const sortedLosers = battleResult?.losers.sort((a, b) => b.score - a.score) || [];
 
   return (
     <Card shadow="sm" title={'Post Battle Page'} withBorder>
