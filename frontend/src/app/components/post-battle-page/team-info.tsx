@@ -4,7 +4,7 @@ import { PlayerWithTooltip } from './player-with-tooltip';
 
 export type TeamInfoProps = {
   title: string;
-  players: PlayerWithStats[] | undefined;
+  players: PlayerWithStats[];
 };
 export const TeamInfo = ({ title, players }: TeamInfoProps) => {
   return (
@@ -16,9 +16,9 @@ export const TeamInfo = ({ title, players }: TeamInfoProps) => {
         <Text py={3}>Score</Text>
       </Group>
       <ScrollArea h={400}>
-        {players?.map((player) => {
+        {players.map((player) => {
           return (
-            <div key={player?.id}>
+            <div key={player.id}>
               <Group justify="space-between">
                 <PlayerWithTooltip player={player} />
                 <Text py={3} mr={'2rem'} c={!player.isAlive ? 'dimmed' : ''}>
