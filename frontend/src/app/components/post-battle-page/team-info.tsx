@@ -7,11 +7,15 @@ export type TeamInfoProps = {
   players: PlayerWithStats[] | undefined;
 };
 export const TeamInfo = ({ title, players }: TeamInfoProps) => {
+
+  console.log("title", title);
+
+
   return (
     <div>
       <Group justify="space-between">
         <Text py={3} fw={'bold'} size={'xl'}>
-          {title}
+          {title || 'Team'}
         </Text>
         <Text py={3}>Score</Text>
       </Group>
