@@ -8,8 +8,7 @@ export type TeamInfoProps = {
 };
 export const TeamInfo = ({ title, players }: TeamInfoProps) => {
 
-  console.log("title", title);
-
+  const playerList = players || [];
 
   return (
     <div>
@@ -20,7 +19,7 @@ export const TeamInfo = ({ title, players }: TeamInfoProps) => {
         <Text py={3}>Score</Text>
       </Group>
       <ScrollArea h={400}>
-        {players?.map((player) => {
+        {playerList.map((player) => {
           return (
             <div key={player?.id}>
               <Group justify="space-between">
