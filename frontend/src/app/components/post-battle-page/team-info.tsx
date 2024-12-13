@@ -7,7 +7,6 @@ export type TeamInfoProps = {
   players: PlayerWithStats[];
 };
 export const TeamInfo = ({ title, players }: TeamInfoProps) => {
-
   return (
     <div>
       <Group justify="space-between">
