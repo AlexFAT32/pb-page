@@ -10,7 +10,6 @@ export const PostBattlePage = () => {
   const { isLoading, isError, error, data: battleResult  } = useQuery(['battle-result'], (): Promise<BattleResultResponse> => getPostBattleData(apiUrl));
 
   if (isError) {
-    console.error('Error fetching battle result:', error);
     return <div>Error fetching battle result.</div>;
   }
   if (isLoading) {
