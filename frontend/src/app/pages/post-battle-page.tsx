@@ -6,6 +6,7 @@ import { TeamInfo } from '../components/post-battle-page/team-info';
 import { useQuery } from 'react-query';
 
 export const PostBattlePage = () => {
+
   const apiUrl = process.env.LOCAL_URL || 'http://localhost:3333/api/battle/1/result';
   const { isLoading, isError, error, data: battleResult  } = useQuery(['battle-result'], (): Promise<BattleResultResponse> => getPostBattleData(apiUrl));
 
