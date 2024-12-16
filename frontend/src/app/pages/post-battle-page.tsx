@@ -6,8 +6,7 @@ import { TeamInfo } from '../components/post-battle-page/team-info';
 import { useQuery } from 'react-query';
 
 export const PostBattlePage = () => {
-  if(!process.env.LOCAL_URL) throw new Error('LOCAL_URL is not defined');
-  const apiUrl = process.env.LOCAL_URL;
+  const apiUrl = process.env.LOCAL_URL || 'http://localhost:3333/api/battle/1/result';
   const { isLoading, isError, error, data: battleResult  } = useQuery(['battle-result'], (): Promise<BattleResultResponse> => getPostBattleData(apiUrl));
 
   if (isError) {
@@ -18,8 +17,8 @@ export const PostBattlePage = () => {
     return <Center><Loader color={'white'} /></Center>;
   }
 
-  const sortedWinners = React.useMemo(() => battleResult?.winners.sort((a, b) => b.score - a.score) || [], [battleResult.winners]);
-  const sortedLosers = React.useMemo(() => battleResult?.losers.sort((a, b) => b.score - a.score) || [], [battleResult]);
+  const sortedWinners = React.useMemo(() => battleResult?.winners.sort((a, b) => b.score - a.score) || [], [battleResult?.winners]);
+  const sortedLosers = React.useMemo(() => battleResult?.losers.sort((a, b) => b.score - a.score) || [], [battleResult?.losers]);
 
   return (
     <Card shadow="sm" title={'Post Battle Page'} withBorder>
