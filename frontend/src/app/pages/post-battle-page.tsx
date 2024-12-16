@@ -11,14 +11,14 @@ export const PostBattlePage = () => {
 
   if (isError) {
     console.error('Error fetching battle result:', error);
-    return <div>An error occurred.</div>;
+    return <div>Error fetching battle result.</div>;
   }
   if (isLoading) {
     return <Center><Loader color={'white'} /></Center>;
   }
-  
-  const sortedWinners = React.useMemo(() => battleResult?.winners.sort((a, b) => b.score - a.score) || [], [battleResult]);
-  const sortedLosers = React.useMemo(() => battleResult?.losers.sort((a, b) => b.score - a.score) || [], [battleResult]);;
+
+  const sortedWinners = React.useMemo(() => battleResult?.winners.sort((a, b) => b.score - a.score) || [], [battleResult?.winners]);
+  const sortedLosers = React.useMemo(() => battleResult?.losers.sort((a, b) => b.score - a.score) || [], [battleResult?.losers]);
 
   return (
     <Card shadow="sm" title={'Post Battle Page'} withBorder>
