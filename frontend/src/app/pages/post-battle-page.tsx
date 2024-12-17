@@ -6,19 +6,20 @@ import { TeamInfo } from '../components/post-battle-page/team-info';
 import { useQuery } from 'react-query';
 
 export const PostBattlePage = () => {
+
   const apiUrl = process.env.LOCAL_URL || 'http://localhost:3333/api/battle/1/result';
   const { isLoading, isError, error, data: battleResult  } = useQuery(['battle-result'], (): Promise<BattleResultResponse> => getPostBattleData(apiUrl));
 
   if (isError) {
-    console.error('Error fetching battle result:', error);
     return <div>Error fetching battle result.</div>;
   }
   if (isLoading) {
     return <Center><Loader color={'white'} /></Center>;
   }
+  const { winners, losers } = battleResult || {};
 
-  const sortedWinners = React.useMemo(() => battleResult?.winners.sort((a, b) => b.score - a.score) || [], [battleResult?.winners]);
-  const sortedLosers = React.useMemo(() => battleResult?.losers.sort((a, b) => b.score - a.score) || [], [battleResult?.losers]);
+  const sortedWinners = React.useMemo(() => winners.sort((a, b) => b.score - a.score) || [], [winners]);
+  const sortedLosers = React.useMemo(() => losers.sort((a, b) => b.score - a.score) || [], [losers]);
 
   return (
     <Card shadow="sm" title={'Post Battle Page'} withBorder>
