@@ -16,9 +16,10 @@ export const PostBattlePage = () => {
   if (isLoading) {
     return <Center><Loader color={'white'} /></Center>;
   }
+  const { winners, losers } = battleResult || {};
 
-  const sortedWinners = React.useMemo(() => battleResult?.winners.sort((a, b) => b.score - a.score) || [], [battleResult?.winners]);
-  const sortedLosers = React.useMemo(() => battleResult?.losers.sort((a, b) => b.score - a.score) || [], [battleResult?.losers]);
+  const sortedWinners = React.useMemo(() => winners.sort((a, b) => b.score - a.score) || [], [winners]);
+  const sortedLosers = React.useMemo(() => losers.sort((a, b) => b.score - a.score) || [], [losers]);
 
   return (
     <Card shadow="sm" title={'Post Battle Page'} withBorder>
