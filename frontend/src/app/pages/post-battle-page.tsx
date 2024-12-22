@@ -9,7 +9,7 @@ export const PostBattlePage = () => {
 
   const apiUrl = process.env.LOCAL_URL || 'http://localhost:3333/api/battle/1/result';
   const { isLoading, isError, error, data: battleResult  } = useQuery(['battle-result'], (): Promise<BattleResultResponse> => getPostBattleData(apiUrl));
-
+  const title = 'Post Battle Page';
   if (isError) {
     return <div>Error fetching battle result.</div>;
   }
@@ -25,7 +25,7 @@ export const PostBattlePage = () => {
     <Card shadow="sm" title={'Post Battle Page'} withBorder>
       <Card.Section>
         <Center>
-          <h1>Battle result</h1>
+          <h1>{title}</h1>
         </Center>
       </Card.Section>
       <SimpleGrid spacing="md" cols={2}>
