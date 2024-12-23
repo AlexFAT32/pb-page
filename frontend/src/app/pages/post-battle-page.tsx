@@ -27,6 +27,7 @@ export const PostBattlePage = () => {
         <Center>
           <h1>{title}</h1>
         </Center>
+        
       </Card.Section>
       <SimpleGrid spacing="md" cols={2}>
         <Card shadow="sm" withBorder>
