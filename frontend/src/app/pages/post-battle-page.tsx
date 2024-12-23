@@ -17,7 +17,6 @@ export const PostBattlePage = () => {
     return <Center><Loader color={'white'} /></Center>;
   }
   const { winners, losers } = battleResult || {};
-
   const sortedWinners = React.useMemo(() => winners.sort((a, b) => b.score - a.score) || [], [winners]);
   const sortedLosers = React.useMemo(() => losers.sort((a, b) => b.score - a.score) || [], [losers]);
 
@@ -27,7 +26,7 @@ export const PostBattlePage = () => {
         <Center>
           <h1>{title}</h1>
         </Center>
-        
+
       </Card.Section>
       <SimpleGrid spacing="md" cols={2}>
         <Card shadow="sm" withBorder>
