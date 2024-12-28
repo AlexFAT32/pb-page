@@ -11,7 +11,7 @@ export const PostBattlePage = () => {
   const { isLoading, isError, error, data: battleResult  } = useQuery(['battle-result'], (): Promise<BattleResultResponse> => getPostBattleData(apiUrl));
   const title = 'Post Battle Page';
   if (isError) {
-    return <div>Error fetching battle result.</div>;
+    return <div>`Error fetching battle result. Error: ${error}`</div>;
   }
   if (isLoading) {
     return <Center><Loader color={'white'} /></Center>;
