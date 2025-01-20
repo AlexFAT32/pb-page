@@ -7,6 +7,9 @@ export type TeamInfoProps = {
   players: PlayerWithStats[];
 };
 export const TeamInfo = ({ title, players }: TeamInfoProps) => {
+  useEffect(() => {
+    players.sort((a, b) => b.score - a.score);
+  }, []);
   return (
     <div>
       <Group justify="space-between">
