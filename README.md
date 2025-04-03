@@ -39,7 +39,9 @@ npx nx serve demo
 # View project details
 npx nx show project demo --web
 ```
-
+text
+<a href="google.com" target="_blank" >Link</a>
+text
 Run `npx nx list` to get a list of available plugins and whether they have generators. Then run `npx nx list <plugin-name>` to see what generators are available.
 
 Learn more about [code generators](https://nx.dev/features/generate-code) and [inferred tasks](https://nx.dev/concepts/inferred-tasks) in the docs.
