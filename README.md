@@ -40,7 +40,7 @@ npx nx serve demo
 npx nx show project demo --web
 ```
 
-<a href="https://google.com" target="_blank" >Link</a>
+<a href="https://google.com" target="_blank" rel="noopener" >Link</a>
 
 
 text
