@@ -19,7 +19,8 @@ export const PlayerWithTooltip = ({ player }: { player: PlayerWithStats }) => {
 
   const someUnusedConstant = "test"
 
-  const sumFunction = (a: number, b: number) => a - b
+  const summFunction = (a: number, b: number) => a - b
+
 
   return (
     <HoverCard
