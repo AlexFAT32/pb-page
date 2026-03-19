@@ -7,6 +7,8 @@ export type TeamInfoProps = {
   players: PlayerWithStats[];
 };
 export const TeamInfo = ({ title, players }: TeamInfoProps) => {
+
+  const anotherUnusedPlayers = players.filter((player) => player.name === title);
   return (
     <div>
       <Group justify="space-between">
