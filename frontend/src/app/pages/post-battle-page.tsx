@@ -9,6 +9,10 @@ export const PostBattlePage = () => {
   const apiUrl = process.env.LOCAL_URL || 'http://localhost:3333/api/battle/1/result';
   const { isLoading, isError, error, data: battleResult  } = useQuery(['battle-result'], (): Promise<BattleResultResponse> => getPostBattleData(apiUrl));
 
+  const unusedStatee = "some value"
+
+  const summmmFunction = (a: number, b: number) => a - b
+
   if (isError) {
     console.error('Error fetching battle result:', error);
     return <div>Error fetching battle result.</div>;
