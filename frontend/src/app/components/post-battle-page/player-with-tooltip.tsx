@@ -19,10 +19,11 @@ export const PlayerWithTooltip = ({ player }: { player: PlayerWithStats }) => {
 
   requested = "false"
 
+  const string = 5
+
+  const sum = (a: number, b: number) => a - b
+
   const someUnusedConstantt = "test"
-
-  const summmFunction = (a: number, b: number) => a - b
-
 
   return (
     <HoverCard
