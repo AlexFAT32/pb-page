@@ -17,6 +17,8 @@ export const PlayerWithTooltip = ({ player }: { player: PlayerWithStats }) => {
     }
   };
 
+  requested = "false"
+
   const someUnusedConstantt = "test"
 
   const summmFunction = (a: number, b: number) => a - b
