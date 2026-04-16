@@ -19,6 +19,8 @@ export const PlayerWithTooltip = ({ player }: { player: PlayerWithStats }) => {
 
   requested = "false"
 
+  sheet
+
   hujnia
 
   const string = 5
