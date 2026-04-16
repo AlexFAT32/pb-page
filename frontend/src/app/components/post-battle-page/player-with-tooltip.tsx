@@ -19,9 +19,11 @@ export const PlayerWithTooltip = ({ player }: { player: PlayerWithStats }) => {
 
   requested = "false"
 
-    hujnia
+  hujnia
 
   const string = 5
+
+  string = 4
 
   const sum = (a: number, b: number) => a - b
 
